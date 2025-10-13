@@ -80,13 +80,13 @@ export const Cell: React.FC<CellProps> = ({
 
     return (
         <div
-            onClick={data.isRevealed ? undefined : handleClick}
+            onClick={data.isRevealed || data.isFlagged ? undefined : handleClick}
             onContextMenu={data.isRevealed ? undefined : onRightClick}
             style={{ transitionDelay: `${delayMs}ms` }}
-            className={`w-6 h-6 border-1 flex items-center border-transparent justify-center font-bold text-lg 
+            className={`w-6 h-6 border-1 flex items-center border-transparent justify-center font-bold text-lg select-none
                 ${
                     data.isRevealed
-                        ? ""
+                        ? "cursor-default"
                         : "hover:border-white cursor-pointer z-1"
                 } 
                 transition-all duration-300 ease-out transform ${

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Field } from "./Field";
+import { Board } from "./Board";
 
 type Difficulty = { rows: number; cols: number; mines: number };
 
@@ -22,33 +22,38 @@ function Game() {
 
     if (!difficulty) {
         return (
-            <div className="flex w-full max-w-xs flex-col gap-4 rounded-xl border-2 border-red-900 p-10">
+            <section className="flex w-full max-w-xs flex-col gap-4 rounded-xl
+            bg-slate-900 px-10 py-5 duration-300 hover:scale-105">
+                <h2 className="text-center text-2xl font-bold mb-2">Escolha a Dificuldade</h2>
                 <button
-                    className="rounded-lg bg-emerald-600 px-6 py-3 font-bold text-white hover:bg-emerald-700"
+                    className="rounded-lg bg-emerald-600 py-3
+                    font-bold text-white text-xl duration-300 hover:bg-emerald-700"
                     onClick={() => setDifficulty(difficulties.easy)}
                 >
                     Fácil
                 </button>
                 <button
-                    className="rounded-lg bg-amber-500 px-6 py-3 font-bold text-white hover:bg-amber-600"
+                    className="rounded-lg bg-amber-500 py-3 
+                    font-bold text-white text-xl duration-300 hover:bg-amber-600"
                     onClick={() => setDifficulty(difficulties.medium)}
                 >
                     Médio
                 </button>
                 <button
-                    className="rounded-lg bg-rose-600 px-6 py-3 font-bold text-white hover:bg-rose-700"
+                    className="rounded-lg bg-rose-600 py-3 
+                    font-bold text-white text-xl duration-300 hover:bg-rose-700"
                     onClick={() => setDifficulty(difficulties.hard)}
                 >
                     Difícil
                 </button>
-            </div>
+            </section>
         );
     }
 
     return (
         <div className="flex flex-col gap-4 items-center">
             <div className={`${gameStatus === "playing" ? "z-20 " : "z-10"}`}>
-                <Field
+                <Board
                     rows={difficulty.rows}
                     cols={difficulty.cols}
                     mines={difficulty.mines}
