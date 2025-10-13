@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { Cell } from "./Cell";
-import { useField } from "../hooks/useField";
+import { useBoard } from "../hooks/useBoard";
 import { FaBomb } from "react-icons/fa";
 import { MdTimer } from "react-icons/md";
 
-export const Field: React.FC<{
+export const Board: React.FC<{
     rows: number;
     cols: number;
     mines: number;
     onStatusChange?: (status: "playing" | "won" | "lost") => void;
 }> = ({ rows, cols, mines, onStatusChange }) => {
-    const { board, gameStatus, minesLeft, handleReveal, handleFlag } = useField(
+    const { board, gameStatus, minesLeft, handleReveal, handleFlag } = useBoard(
         rows,
         cols,
         mines

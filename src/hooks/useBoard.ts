@@ -2,12 +2,10 @@ import { useState, useMemo } from "react";
 import type { TCell } from "../types/Cell";
 import { revealCell } from "../logic/revealCell";
 import { toggleFlag } from "../logic/toggleFlag";
-// import { checkWin } from "../utils/games/checkWin";
-// import { checkLose } from "../utils/games/checkLose";
 import { revealBoard } from "../logic/revealBoard";
 import { checkGameStatus } from "../logic/checkGameStatus";
 
-export const useField = (rows = 16, cols = 16, mines = 40) => {
+export const useBoard = (rows = 16, cols = 16, mines = 40) => {
     const [board, setBoard] = useState<TCell[][] | null>(null);
     const [gameStatus, setGameStatus] = useState<"playing" | "won" | "lost">("playing");
 
